@@ -134,9 +134,20 @@ SELECT DISTINCT s.name
 FROM Students s
 JOIN Grades g ON s.student_id = g.student_id
 WHERE g.grade = 'A';
+--##############################################################################
+-- List the courses that no students have enrolled in.
 
+SELECT c.title
+FROM Courses c
+LEFT JOIN Enrollments e ON c.course_id = e.course_id
+WHERE e.course_id IS NULL;
 --##############################################################################
---
---##############################################################################
---
+-- Find the professors who have assigned more than 5 unique assignments.
+
+SELECT p.name
+FROM Professors p
+JOIN Courses c ON c.departement = p.departement
+JOIN Assignments a ON a.course_id = c.course_id
+GROUP BY p.name
+HAVING COUNT(DISTINCT a.assignment_id) > 5;
 --##############################################################################
