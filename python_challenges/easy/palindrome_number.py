@@ -25,3 +25,15 @@ Constraints:
 
 Follow up: Could you solve it without converting the integer to a string?
 """
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        # Negative numbers are not palindromes
+        if x < 0:
+            return False
+
+        x_str = str(x)
+
+        x_reversed = x_str[::-1]
+
+        return x_str == x_reversed
