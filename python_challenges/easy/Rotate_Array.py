@@ -47,7 +47,6 @@ class Solution:
             nums.insert(0, nums.pop())
 
 # More time efficient solution:
-"""
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         n = len(nums)
@@ -66,7 +65,13 @@ class Solution:
         reverse(0, k - 1)
         # Reverse the remaining elements
         reverse(k, n - 1)
-"""
+
+#Same efficiency, way shorter
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        k = k % len(nums)
+        nums[:] = nums[-k:] + nums[:-k]
+
 # Example usage
 solution = Solution()
 
