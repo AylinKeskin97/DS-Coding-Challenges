@@ -30,7 +30,7 @@ class Solution:
     def gcdofstrings(self, str1: str, str2: str) -> str:
 
         # this is important to check if str2 is in str1
-        if str1 + str2 != str2 + str2:
+        if str1 + str2 != str2 + str1:
             return ""
 
         #calculate gcd
